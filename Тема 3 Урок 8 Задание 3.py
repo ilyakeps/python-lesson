@@ -13,3 +13,4 @@ while left <= right:
         right -= 1
         boats += 1
 print(boats)
+ 
