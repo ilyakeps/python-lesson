@@ -1,46 +1,70 @@
-import random
+# def chet(a):
+#     if a % 2 == 0:
+#         return True
+#     return False
+#
+# print(chet(5))
+# print(chet(4))
+
+# def tmp(name):
+#     print(f'Привет {name}')
+#
+# tmp('MARK')
+
+# def vis(year):
+#     if year % 4 == 0 and year % 100 != 0 or year % 400 == 0:
+#         return True
+#     return False
+#
+# y = int(input("Введите год: "))
+# print(vis(y))
+
+# def nechet(n):
+#     return(n % 2 !=0)
+#
+# def res(l):
+#     for i in l:
+#         if nechet(i):
+#             print(i)
+#
+# tmp = [1,2,3,4,5,6,78,9,]
+# res(tmp)
+
+# def new_year():
+#     print('С новым годом!!!')
+#
+# def birthday():
+#     name = input("Укажите имя имениника: ")
+#     print(f'С днем рождения {name}!!!')
+#
+# def mart8():
+#     print('Поздравляю с 8 мартом!!!')
+#
+# n = int(input("Укажите кол-во команд которые будут выполнены: "))
+# for i in range(n):
+#     cmname = input('Введите значение "новый год", "день рожденье" или "8 марта": ')
+#     if cmname == 'новый год':
+#         new_year()
+#     elif cmname == 'день рожденье':
+#         birthday()
+#     elif cmname == '8 марта':
+#         mart8()
+#     else:
+#         print('Неправильная команда')
+
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n - 1)
+
+def factorial2(start_num):
+    first_fact = factorial(start_num)
+    numbers = range(first_fact, 0, -1)
+    result = [factorial(num) for num in numbers]
+    return result
 
 
-def generate_matrix(rows, cols, min_val=-100, max_val=100):
-    return [[random.randint(min_val, max_val) for _ in range(cols)] for _ in range(rows)]
-
-
-def add_matrices(matrix1, matrix2):
-    if len(matrix1) != len(matrix2) or len(matrix1[0]) != len(matrix2[0]):
-        raise ValueError("Матрицы должны быть одинакового размера")
-
-    return [[matrix1[i][j] + matrix2[i][j] for j in range(len(matrix1[0]))]
-            for i in range(len(matrix1))]
-
-
-def print_matrix(matrix):
-    for row in matrix:
-        print(row)
-
-
-
-matrix_1 = generate_matrix(10, 10)
-matrix_2 = generate_matrix(10, 10)
-
-print("Матрица 1:")
-print_matrix(matrix_1)
-print("\nМатрица 2:")
-print_matrix(matrix_2)
-
-
-matrix_3 = add_matrices(matrix_1, matrix_2)
-print("\nРезультат сложения (Матрица 3):")
-print_matrix(matrix_3)
-
-
-small_matrix_1 = generate_matrix(4, 3)
-small_matrix_2 = generate_matrix(4, 3)
-
-print("\nМаленькая матрица 1:")
-print_matrix(small_matrix_1)
-print("\nМаленькая матрица 2:")
-print_matrix(small_matrix_2)
-
-small_matrix_3 = add_matrices(small_matrix_1, small_matrix_2)
-print("\nРезультат сложения маленьких матриц:")
-print_matrix(small_matrix_3)
+input_num = int(input("Введите число: "))
+result_list = factorial2(input_num)
+print(f"Факториал числа {input_num}: {factorial(input_num)}")
+print(f"Результирующий список: {result_list}")
